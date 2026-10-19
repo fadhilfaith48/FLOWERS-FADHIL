@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <title>Lagu untukmu ♥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/musik.css">
+</head>
+
+<body>
+  <div class="night"></div>
+  <div class="petals" id="notes"></div>
+
+  <main class="music-page" id="musicPage">
+    <h1 class="music-title">Satu Lagu untukmu</h1>
+
+    <div class="player" id="player">
+      <button class="play-btn" id="playBtn" aria-label="Putar / Jeda">▶</button>
+      <div class="track">
+        <div class="progress" id="progressBar"></div>
+      </div>
+      <span class="time" id="time">0:00 / 0:00</span>
+    </div>
+
+    <p class="song-name" id="songName">media/lagu.mp3</p>
+    <p class="music-hint" id="musicHint">♪ Taruh file lagu bernama <strong>lagu.mp3</strong> di folder <strong>media/</strong> agar lagu bisa diputar.</p>
+
+    <a class="back-link" href="surat.html">← Kembali ke surat</a>
+  </main>
+
+  <script src="js/musik.js"></script>
+  <script src="js/hearts.js"></script>
+</body>
+
+</html>
