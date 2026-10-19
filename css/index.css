@@ -7,60 +7,121 @@
 }
 
 :root {
-  --dark-color: #000;
+  --rose: #ff5c8a;
+  --rose-soft: #ffb6c1;
+  --blush: #ffe5ec;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #1b0b1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.1rem, 5vh, 2.6rem);
+  padding: 4vh 5vw;
 }
 
 .night {
   position: fixed;
-  left: 50%;
+  left: 0;
   top: 0;
-  transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  filter: blur(0.1vmin);
-  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(255, 255, 250), rgb(240, 240, 240));
+  z-index: 0;
+  background-image:
+    radial-gradient(120% 120% at 50% 118%, rgba(255, 105, 180, 0.3), transparent 62%),
+    radial-gradient(85% 55% at 50% -10%, rgba(255, 182, 193, 0.25), transparent 60%),
+    linear-gradient(160deg, #1b0b1f 0%, #2a0e1f 40%, #4a1a3a 78%, #7a2d4d 100%);
+  animation: bg-shift 16s ease-in-out infinite alternate;
+}
+
+@keyframes bg-shift {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(16deg);
+  }
 }
 
 .title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-
+  position: relative;
+  z-index: 2;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
-
-  width: 100%;
-  height: 100vh;
-  text-shadow: 0 0 20px white;
-  letter-spacing: 0px;
+  color: #fff;
+  font-family: 'Great Vibes', 'Segoe Script', 'Brush Script MT', cursive;
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+  padding: 0 2vw;
 }
 
-@media (min-width: 500px) {
-  .title {
-    letter-spacing: 20px;
-  }
+.title span {
+  opacity: 0;
+  display: inline-block;
+  font-size: clamp(3.6rem, 13vw, 9rem);
+  background-image: linear-gradient(100deg, #fff 10%, #ffc2d6 45%, #ff5c8a 70%, #fff8c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgba(255, 92, 138, 0.6));
+  animation: typing 1s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0s);
 }
 
 @keyframes typing {
   from {
     opacity: 0;
+    transform: translateY(14px) scale(0.85);
   }
 
   to {
     opacity: 1;
+    transform: none;
   }
 }
 
-/* Terapkan animasi dengan delay */
-.title span {
+.subtitle {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  color: #ffd7e0;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.85rem, 2.4vw, 1.1rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
   opacity: 0;
-  animation: typing 1s ease forwards;
-  animation-delay: var(--delay);
+  transform: translateY(8px);
+  animation: rise-in 1.4s ease 1.6s forwards;
+  text-shadow: 0 0 12px rgba(255, 92, 138, 0.8);
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.btn-wrap {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: rise-in 1.4s ease 2.4s forwards;
 }
 
 a {
@@ -68,44 +129,109 @@ a {
 }
 
 .btn {
-  border: none;
-  width: 15em;
-  height: 5em;
-  border-radius: 3em;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: #1C1A1C;
+  padding: 1.15em 2.4em;
+  border-radius: 4em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: all 450ms ease-in-out;
+  position: relative;
+  transition: all 0.35s ease-in-out;
+  animation: btn-pulse 2.6s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(255, 92, 138, 0.55);
 }
 
-.sparkle {
-  fill: #AAAAAA;
-  transition: all 800ms ease;
-}
-
-.text {
-  font-weight: 600;
-  color: #AAAAAA;
-  font-size: medium;
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, #ff5c8a, #ffd7a0, #ff5c8a);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .btn:hover {
-  background: linear-gradient(0deg, #A47CF3, #683FEA);
-  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 180px 0px #9917FF;
-  transform: translateY(-2px);
+  background: rgba(255, 92, 138, 0.28);
+  border-color: rgba(255, 182, 193, 0.7);
+  transform: translateY(-3px) scale(1.03);
 }
 
-.btn:hover .text {
-  color: white;
+@keyframes btn-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 92, 138, 0.55);
+  }
+
+  50% {
+    box-shadow: 0 0 0 18px rgba(255, 92, 138, 0);
+  }
+}
+
+.sparkle {
+  fill: #ffd7e0;
+  width: 22px;
+  height: 22px;
+  transition: transform 0.5s ease;
 }
 
 .btn:hover .sparkle {
-  fill: white;
-  transform: scale(1.2);
+  transform: scale(1.25) rotate(20deg);
+}
+
+.text {
+  font-size: 1rem;
+  color: #fff;
+}
+
+@media (max-width: 520px) {
+  body {
+    gap: clamp(0.9rem, 4vh, 1.5rem);
+    padding: 3vh 4vw;
+  }
+
+  .title span {
+    font-size: clamp(3rem, 14vw, 4.2rem);
+  }
+
+  .btn {
+    padding: 1em 1.9em;
+    gap: 10px;
+  }
+
+  .text {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-height: 460px) and (orientation: landscape) {
+  body {
+    gap: 0.7rem;
+    justify-content: center;
+  }
+
+  .title span {
+    font-size: 2.6rem;
+  }
+
+  .btn {
+    padding: 0.8em 1.6em;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
 }
