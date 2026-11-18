@@ -1,5 +1,7 @@
 # 💐 Flowers for Someone — FLOWERS-FADHIL
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Website hadiah kecil untuk seseorang: sebuah taman bunga yang mekar, surat yang diketik perlahan di dalam amplop, lagu yang bisa diputar, dan galeri kenangan berbentuk polaroid. Semuanya dibangun dengan HTML, CSS/SCSS, dan JavaScript vanilla — tanpa framework, tanpa proses build, dan bisa langsung dibuka di browser.
 
 ## Highlights
