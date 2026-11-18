@@ -170,3 +170,9 @@ Karena situs hanya berisi file statis, hosting lain seperti Netlify, Vercel, ata
 - Folder `img/` dan `media/` sengaja dibiarkan kosong. Halaman `kenangan.html` memakai placeholder SVG dan `musik.html` menampilkan petunjuk sampai `media/lagu.mp3` ditambahkan.
 - Semua path bersifat relatif, jadi situs tetap berjalan di subpath GitHub Pages (misalnya `https://username.github.io/FLOWERS-FADHIL/`).
 - Font dimuat dari Google Fonts; tanpa koneksi internet, tampilan akan memakai font cadangan (cursive/Arial).
+
+## Lisensi
+
+Proyek ini dirilis di bawah [MIT License](LICENSE).
+
+Kamu bebas menggunakan, menyalin, memodifikasi, menggabungkan, menerbitkan, mendistribusikan, mensublisensikan, dan/atau menjual salinan perangkat lunak ini, selama pemberitahuan hak cipta dan izin di atas disertakan. Perangkat lunak disediakan "sebagaimana adanya", tanpa jaminan apa pun.
